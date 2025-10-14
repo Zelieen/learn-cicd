@@ -18,7 +18,7 @@ jobs:
         with:
           go-version: "1.25.1"
 
-      - name: run go tests
+      - name: Run go tests
         run: go test ./... -cover
 
   style:
@@ -34,5 +34,11 @@ jobs:
         with:
           go-version: "1.25.1"
 
-      - name: check formatting issues
+      - name: Check formatting issues
         run: test -z $(go fmt ./...)
+
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Run staticcheck
+        run: staticcheck ./...
