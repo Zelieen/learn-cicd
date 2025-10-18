@@ -33,5 +33,5 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Push image up
+      - name: Build and push image up
         run: gcloud builds submit --tag europe-west10-docker.pkg.dev/notely-475416/notely-ar-repo/notely:latest .
